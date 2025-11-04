@@ -1,0 +1,1 @@
+# go-joplin-file-backup
