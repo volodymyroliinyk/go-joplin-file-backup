@@ -42,7 +42,7 @@ type Resource struct {
 
 const (
     JOPLIN_API_BASE = "http://localhost:41184"
-    JOPLIN_TOKEN    = "99bcbacc078b509e6a609fe7e9340d44cd115cbd5467129d2fea69380c4547f1389da9d0d7d66b06716398452379187151d6a99b0f97329de34c0bbddbb2e014"
+    JOPLIN_TOKEN = "YOUR_JOPLIN_API_TOKEN"
 )
 
 func NewClient(baseURL, token string) *Client {
