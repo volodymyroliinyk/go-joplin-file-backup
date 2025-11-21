@@ -42,7 +42,7 @@ type Resource struct {
 
 const (
     JOPLIN_API_BASE = "http://localhost:41184"
-    JOPLIN_TOKEN = "YOUR_JOPLIN_API_TOKEN"
+    // JOPLIN_TOKEN    = "ac41d362cc994227eec2b01c2a4f1b3a925eb20d742202f3480e516e68a916dcef7717225ba1e452a37600a48fd7fdb2c2e50b84f0659b2047ad2050cd91d289"
 )
 
 func NewClient(baseURL, token string) *Client {
@@ -347,8 +347,9 @@ func main() {
 
     flag.Parse()
 
-    if JOPLIN_TOKEN == "YOUR_JOPLIN_API_TOKEN" {
-        log.Fatal("ERROR: Please replace stub 'YOUR_JOPLIN_API_TOKEN' with your actual API token.")
+    token := os.Getenv("JOPLIN_TOKEN")
+    if token == "" {
+        log.Fatal("ERROR: Environment variable JOPLIN_TOKEN is not set or empty.")
     }
 
     dirInfo, err := os.Stat(directory)
@@ -359,7 +360,7 @@ func main() {
         log.Fatalf("%q is not a directory", directory)
     }
 
-    client := NewClient(JOPLIN_API_BASE, JOPLIN_TOKEN)
+    client := NewClient(JOPLIN_API_BASE, token)
 
     if err := client.Ping(); err != nil {
         log.Printf("WARNING: Joplin /ping failed: %v (continuing anyway)", err)
