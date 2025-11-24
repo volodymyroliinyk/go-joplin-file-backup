@@ -137,3 +137,7 @@ Notes, notebooks, and tags are never removed.
 * Backup of mind map files (`.smmx`)
 * Backup of diagrams, research documents, JSON exports, etc
 * Personal digital archiving inside Joplin
+
+TODOs:
+
+- Unit testing
